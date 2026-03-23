@@ -1,0 +1,2 @@
+# GapFlushMeasurement
+This repository provides an implementation of the gap and flush measurement method based on breakpoint detection. The code is currently under preparation and will be released soon.
