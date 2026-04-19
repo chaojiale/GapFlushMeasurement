@@ -12,4 +12,9 @@ A visualization example is provided in `example.py`, which demonstrates the comp
 
 ---
 
+## Note
+In the published version of the paper, there is a labeling error in Figure 18: "Fender-primary reference" and "Door-primary reference" are swapped in the first row.
+
+---
+
 If you have any questions, feel free to email us at chaojiale@sjtu.edu.cn.
