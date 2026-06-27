@@ -7,6 +7,7 @@ from typing import Optional, Tuple, Any
 
 
 class FlushGapTool:
+    # NOTE: legacy slope-based implementation, better migrate to general form
     def __init__(self, part1_points: np.ndarray, part2_points: np.ndarray,
                  part1_info: SegmentInfo, part2_info: SegmentInfo,
                  section_name: str = None):
@@ -88,7 +89,7 @@ class FlushGapTool:
             flush_dir = (-k2, 1)
             param = k2
         elif method == MeasuringMethod.BISECTOR:
-            k = (k1 + k2) / 2
+            k = self.bisector_k(k1, k2)
             flush = ((k * p2[0] - p2[1]) - (k * p1[0] - p1[1])) / np.sqrt(k ** 2 + 1)
             flush_dir = (-k, 1)
             param = k
@@ -124,7 +125,7 @@ class FlushGapTool:
         elif method == MeasuringMethod.PRIMARY2:
             gap_dir = (1, k2)
         elif method == MeasuringMethod.BISECTOR:
-            k = (k1 + k2) / 2
+            k = self.bisector_k(k1, k2)
             gap_dir = (1, k)
         elif method == MeasuringMethod.GLOBAL:
             gap_dir = (-ref_direction[1], ref_direction[0])  # Perpendicular to the global measuring direction
@@ -145,6 +146,14 @@ class FlushGapTool:
             Plotter.plot_gap(method, p1, p2, gap_dir, gap_pt1, gap_pt2, gap)
 
         return gap, idx1, idx2, gap_pt1, gap_pt2, gap_dir
+
+    @staticmethod
+    def bisector_k(k1, k2):
+        n1 = np.array([1, k1]) / np.linalg.norm([1, k1])
+        n2 = np.array([1, k2]) / np.linalg.norm([1, k2])
+        n_b = n1 + n2
+        n_b = n_b / np.linalg.norm(n_b)
+        return n_b[1] / n_b[0]
 
     @staticmethod
     def find_support_point_with_reference(points: np.ndarray, arc_range: Tuple[int, int],

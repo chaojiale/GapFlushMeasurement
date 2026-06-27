@@ -13,7 +13,7 @@ A visualization example is provided in `example.py`, which demonstrates the comp
 ---
 
 ## Note
-In the published version of the paper, there is a labeling error in Figure 18: "Fender-primary reference" and "Door-primary reference" are swapped in the first row.
+In the published version of the paper, there is a labeling error in Figure 18: "Fender-primary reference" and "Door-primary reference" are swapped in the first row. Additionally, the bisector reference formulation has been corrected using normalized directional averaging in the code.
 
 ---
 

@@ -2,6 +2,7 @@ import numpy as np
 from scipy.optimize import least_squares
 
 class GeometryTools:
+    # NOTE: legacy slope-based implementation, better migrate to general form
     @staticmethod
     def fit_line(points: np.ndarray):
         """
