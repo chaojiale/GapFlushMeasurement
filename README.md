@@ -5,16 +5,10 @@ This project implements the core algorithm described in the paper:
 
 The repository provides a robust pipeline for 2D profile processing, including adaptive noise filtering, breakpoint detection (corners and tangents), and standardized gap and flush (G&F) calculation.
 
----
-
 ## Demonstration
 A visualization example is provided in `example.py`, which demonstrates the complete workflow from point cloud preprocessing and breakpoint detection to final measurement results.
 
----
-
 ## Note
 In the published version of the paper, there is a labeling error in Figure 18: "Fender-primary reference" and "Door-primary reference" are swapped in the first row. Additionally, the bisector reference formulation has been corrected using normalized directional averaging in the code.
-
----
 
 If you have any questions, feel free to email us at chaojiale@sjtu.edu.cn.
